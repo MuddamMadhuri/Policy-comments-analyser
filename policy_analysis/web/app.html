@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Comment Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Policy Comment Analysis</h1>
+            <p class="subtitle">Analyze public sentiment, stance, and topics for policy drafts.</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <select id="policySelect" class="policy-dropdown">
+                    <option value="" disabled selected>Select a Policy Draft...</option>
+                    <option value="Mining Lease Proposal">Mining Lease Proposal</option>
+                    <option value="Irrigation Canal Project">Irrigation Canal Project</option>
+                    <option value="Waste-to-Energy Plant">Waste-to-Energy Plant</option>
+                    <option value="Hydropower Dam Project">Hydropower Dam Project</option>
+                    <option value="Industrial Park Phase II">Industrial Park Phase II</option>
+                    <option value="Riverfront Development Project">Riverfront Development Project</option>
+                    <option value="Thermal Power Expansion">Thermal Power Expansion</option>
+                    <option value="Solar Park Initiative">Solar Park Initiative</option>
+                    <option value="Plastic Recycling Facility">Plastic Recycling Facility</option>
+                    <option value="Afforestation Program">Afforestation Program</option>
+                    <option value="Coastal Highway">Coastal Highway</option>
+                    <option value="Urban Metro Line">Urban Metro Line</option>
+                </select>
+                <textarea id="commentInput" placeholder="Enter a public comment here..."></textarea>
+                <button id="analyzeBtn">Analyze Comment</button>
+            </div>
+
+            <div id="resultsSection" class="results-section hidden">
+                <div class="card sentiment-card">
+                    <h3>Sentiment</h3>
+                    <div class="result-value" id="sentimentResult">--</div>
+                    <!-- Donut Chart -->
+                    <div class="chart-container-sm">
+                        <canvas id="sentimentChart"></canvas>
+                    </div>
+                </div>
+                <div class="card stance-card">
+                    <h3>Stance</h3>
+                    <div class="result-value" id="stanceResult">--</div>
+                </div>
+                <div class="card topic-card">
+                    <h3>Policy Draft</h3>
+                    <div class="result-value" id="topicResult">--</div>
+                </div>
+
+                <!-- Insights Section -->
+                <div class="card explanation-card" id="explanationCard">
+                    <h3>Key Insight 📌</h3>
+                    <p id="explanationText" class="insight-text"></p>
+                </div>
+
+                <!-- New Visuals Grid -->
+                <div class="card full-width-card">
+                    <h3>Sentiment Trend Over Time</h3>
+                    <div class="chart-container-lg">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card full-width-card">
+                    <h3>Emotional Impact Analysis</h3>
+                    <div class="chart-container-lg">
+                        <canvas id="emotionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing...</p>
+            </div>
+
+            <div id="error" class="error hidden">
+                <p>Error connecting to API. Please ensure the backend is running.</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js?v=6"></script>
+</body>
+
+</html>
